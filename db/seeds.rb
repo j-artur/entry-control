@@ -14,6 +14,7 @@ sector = Sector.create(name: "Administração", unit_id: unit.id)
 
 # Create a main admin user
 user = User.create(
+  name: "Admin",
   email: "admin@admin.com",
   password: "admin123",
   password_confirmation: "admin123",

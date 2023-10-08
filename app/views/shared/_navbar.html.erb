@@ -53,7 +53,7 @@
                 <%= current_user.name %>
             </p>
             <p class="text-sm italic">
-                <%= role_name current_user.role %>
+                <%= current_user.role.capitalize %>
             </p>
             <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "w-full px-4 py-2 bg-blue-600 text-sm text-white rounded" %>
         <% else %>

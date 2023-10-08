@@ -11,9 +11,12 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_10_08_022150) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "sectors", force: :cascade do |t|
     t.string "name"
-    t.integer "unit_id", null: false
+    t.bigint "unit_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["unit_id"], name: "index_sectors_on_unit_id"
@@ -34,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_022150) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "role"
-    t.integer "sector_id", null: false
+    t.bigint "sector_id", null: false
     t.text "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -51,9 +54,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_022150) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.integer "visitor_id", null: false
-    t.integer "sector_id", null: false
-    t.integer "user_id"
+    t.bigint "visitor_id", null: false
+    t.bigint "sector_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sector_id"], name: "index_visits_on_sector_id"

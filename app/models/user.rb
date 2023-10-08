@@ -13,14 +13,3 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3, maximum: 100 }
   validates :sector, presence: true
 end
-
-def role_name role
-  case role
-  when 'admin'
-    'Administrador'
-  when 'attendant'
-    'Atendente'
-  when 'employee'
-    'Funcionário'
-  end
-end

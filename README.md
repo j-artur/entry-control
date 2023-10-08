@@ -1,24 +1,7 @@
-# README
+# Entry Control
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Sistema de Controle de Entrada de Visitas
 
-Things you may want to cover:
+Esse projeto foi feito utilizando o TailwindCSS para estilização, para compilar o CSS é necessário rodar o comando `bundle exec rake assets:precompile`.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+DER: ![https://imgur.com/a/W9IzTGC](https://i.imgur.com/y68ePq5.png)

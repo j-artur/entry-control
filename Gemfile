@@ -83,3 +83,5 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "mask_validator", "~> 0.2.3"
 
 gem "byebug", "~> 11.1"
+
+gem "pg", "~> 1.5"

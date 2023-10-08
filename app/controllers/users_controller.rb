@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 
     def set_roles
       @roles = User.roles.keys.map do |role|
-        [role_name(role), role]
+        [role.capitalize, role]
       end
     end
 
