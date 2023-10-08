@@ -1,0 +1,38 @@
+<a href="<%= visitors_path %>">
+  <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+    Back
+  </button>
+</a>
+
+<div id="<%= dom_id @visitor %>" class="flex flex-col items-center gap-2">
+  <p>
+    <strong>Name:</strong>
+    <%= @visitor.name %>
+  </p>
+  <p class="text-sm">
+    <strong>Cpf:</strong>
+    <%= @visitor.cpf %>
+  </p>
+  <p class="text-sm">
+    <strong>Rg:</strong>
+    <%= @visitor.rg %>
+  </p>
+  <p class="text-sm">
+    <strong>Phone:</strong>
+    <%= @visitor.phone %>
+  </p>
+</div>
+
+<div class="flex flex-row gap-4 pt-2 text-sm">
+  <% if can? :read, @visitor %>
+    <a href="<%= edit_visitor_path(@visitor) %>">
+      <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+        Edit
+      </button>
+    </a>
+  <% end %>
+
+   <% if can? :destroy, @visitor %>
+    <%= button_to "Destroy", @visitor, method: :delete, class: "bg-red-500 hover:bg-red-700 text-sm text-white py-2 px-4 rounded" %>
+  <% end %>
+</div>

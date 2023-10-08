@@ -1,0 +1,17 @@
+<a href="<%= visitors_path %>">
+  <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+    Back
+  </button>
+</a>
+
+<h1 class="text-center text-lg">Editing visitor</h1>
+
+<div class="flex flex-col items-center gap-2">
+  <%= render "form", visitor: @visitor %>
+</div>
+
+<a href="/visitors/<%= @visitor.id %>">
+  <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+    Show visitor
+  </button>
+</a>

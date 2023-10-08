@@ -1,0 +1,51 @@
+<a href="<%= users_path %>">
+  <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+    Back
+  </button>
+</a>
+
+<div id="<%= dom_id @user %>" class="flex flex-col items-center gap-2">
+  <p>
+    <strong>
+      Nome:
+    </strong>
+    <%= @user.name %>
+  </p>
+  <p class="text-sm">
+    <strong>
+      Email:
+    </strong>
+    <%= @user.email %>
+  </p>
+  <p class="text-sm italic">
+    <strong>
+      Role:
+    </strong>
+    <%= role_name @user.role %>
+  </p>
+  <p class="text-sm">
+    <strong>
+      Sector:
+    </strong>
+    <%= @user.sector.name %>
+  </p>
+  <p class="text-sm">
+    <strong>
+      Unit:
+    </strong>
+    <%= @user.sector.unit.name %>
+  </p>
+</div>
+
+<div class="flex flex-row gap-4 pt-2 text-sm">
+  <% if can? :read, @user %>
+    <a href="<%= edit_user_path(@user) %>">
+      <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+        Edit
+      </button>
+    </a>
+  <% end %>
+  <% if can? :destroy, @user %>
+    <%= button_to "Destroy", @user, method: :delete, class: "bg-red-500 hover:bg-red-700 text-sm text-white py-2 px-4 rounded" %>
+  <% end %>
+</div>

@@ -1,0 +1,34 @@
+<a href="<%= sectors_path %>">
+  <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+    Back
+  </button>
+</a>
+
+<div id="<%= dom_id @sector %>" class="flex flex-col items-center gap-2">
+  <p>
+    <strong>
+      Name:
+    </strong>
+    <%= @sector.name %>
+  </p>
+  <p>
+    <strong>
+      Unit:
+    </strong>
+    <%= @sector.unit.name %>
+  </p>
+</div>
+
+<div class="flex flex-row gap-4 pt-2 text-sm">
+  <% if can? :edit, @sector %>
+    <a href="<%= edit_sector_path(@sector) %>">
+      <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+        Edit
+      </button>
+    </a>
+  <% end %>
+
+  <% if can? :destroy, @sector %>
+    <%= button_to "Destroy", @sector, method: :delete, class: "bg-red-500 hover:bg-red-700 text-sm text-white py-2 px-4 rounded" %>
+  <% end %>
+</div>

@@ -1,0 +1,37 @@
+<% if can? :create, Visit %>
+  <div class="flex justify-end">
+    <a href="<%= new_visit_path %>">
+      <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+        New Visit
+      </button>
+    </a>
+  </div>
+<% end %>
+
+<div id="visits" class="flex flex-col items-center gap-2">
+  <% @visits.each do |visit| %>
+    <div class="flex flex-row w-80 justify-between items-center p-4 bg-white rounded">
+      <div id="<%= dom_id visit %>">
+        <p>
+          <%= visit.visitor.name %>
+        </p>
+        <p class="text-sm">
+          <%= visit.visitor.cpf %>
+        </p>
+        <p class="text-sm">
+          <%= visit.sector.name %> | <%= visit.sector.unit.name %>
+        </p>
+        <% if visit.user.present? %>
+          <p class="text-sm">
+            <%= visit.user.name %>
+          </p>
+        <% end %>
+      </div>
+      <a href="/visits/<%= visit.id %>">
+        <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+          Show
+        </button>
+      </a>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,28 @@
+<a href="<%= units_path %>">
+  <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+    Back
+  </button>
+</a>
+
+<div id="<%= dom_id @unit %>" class="flex flex-col items-center gap-2">
+  <p>
+    <strong>
+      Nome:
+    </strong>
+    <%= @unit.name %>
+  </p>
+</div>
+
+<div class="flex flex-row gap-4 pt-2 text-sm">
+  <% if can? :edit, @unit %>
+    <a href="<%= edit_unit_path(@unit) %>">
+      <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+        Edit
+      </button>
+    </a>
+  <% end %>
+
+  <% if can? :destroy, @unit %>
+    <%= button_to "Destroy", @unit, method: :delete, class: "bg-red-500 hover:bg-red-700 text-sm text-white py-2 px-4 rounded" %>
+  <% end %>
+</div>

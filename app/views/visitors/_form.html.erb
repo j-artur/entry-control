@@ -1,0 +1,37 @@
+<%= form_with(model: visitor, html: { data: { controller: "masks" } }) do |form| %>
+  <% if visitor.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(visitor.errors.count, "error") %> prohibited this visitor from being saved:</h2>
+
+      <ul>
+        <% visitor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, placeholder: "Nome" %>
+  </div>
+
+  <div>
+    <%= form.label :cpf, style: "display: block" %>
+    <%= form.text_field :cpf, placeholder: "000.000.000-00", data: { masks_target: 'cpf' } %>
+  </div>
+
+  <div>
+    <%= form.label :rg, style: "display: block" %>
+    <%= form.text_field :rg, placeholder: "00.000.000-0", data: { masks_target: 'rg' } %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone, placeholder: "(00) 00000-0000", :data => { masks_target: 'phone'} %>
+  </div>
+
+  <button type="submit" class="w-full mt-4 px-4 py-2 bg-blue-600 text-sm text-white rounded">
+    Save visitor
+  </button>
+<% end %>

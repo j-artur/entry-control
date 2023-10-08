@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EntryControl</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="min-h-[100vh] flex flex-col">
+    <%= render "shared/navbar" %>
+
+    <div class="p-2 bg-gray-100 grow">
+      <div class="flex flex-col w-full gap-1">
+        <p class="text-green-500"><%= notice %></p>
+        <p class="text-red-500"><%= alert %></p>
+      </div>
+      <div class="flex items-center">
+        <div class="w-[800px] mx-auto">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

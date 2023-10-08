@@ -1,0 +1,35 @@
+<% if can? :create, User %>
+  <div class="flex justify-end">
+    <a href="<%= new_user_path %>">
+      <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+        New User
+      </button>
+    </a>
+  </div>
+<% end %>
+
+<div id="users" class="flex flex-col items-center gap-2">
+  <% @users.each do |user| %>
+    <div class="flex flex-row w-80 justify-between items-center p-4 bg-white rounded">
+      <div id="<%= dom_id user %>">
+        <p>
+          <%= user.name %>
+        </p>
+        <p class="text-sm">
+          <%= user.email %>
+        </p>
+        <p class="text-sm italic">
+          <%= role_name user.role %>
+        </p>
+        <p class="text-sm">
+          <%= user.sector.name %> | <%= user.sector.unit.name %>
+        </p>
+      </div>
+      <a href="/users/<%= user.id %>">
+        <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+          Show
+        </button>
+      </a>
+    </div>
+  <% end %>
+</div>

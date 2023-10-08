@@ -1,0 +1,29 @@
+<% if can? :create, Sector %>
+  <div class="flex justify-end">
+    <a href="<%= new_sector_path %>">
+      <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+        New Sector
+      </button>
+    </a>
+  </div>
+<% end %>
+
+<div id="sectors" class="flex flex-col items-center gap-2">
+  <% @sectors.each do |sector| %>
+    <div class="flex flex-row w-80 justify-between items-center p-4 bg-white rounded">
+      <div id="<%= dom_id sector %>">
+        <p>
+          <%= sector.name %>
+        </p>
+        <p class="text-sm">
+          <%= sector.unit.name %>
+        </p>
+      </div>
+      <a href="/sectors/<%= sector.id %>">
+        <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+          Show
+        </button>
+      </a>
+    </div>
+  <% end %>
+</div>

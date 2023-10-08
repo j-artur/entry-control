@@ -1,0 +1,35 @@
+<% if can? :create, Visitor %>
+  <div class="flex justify-end">
+    <a href="<%= new_visitor_path %>">
+      <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+        New Visitor
+      </button>
+    </a>
+  </div>
+<% end %>
+
+<div id="visitors" class="flex flex-col items-center gap-2">
+  <% @visitors.each do |visitor| %>
+    <div class="flex flex-row w-80 justify-between items-center p-4 bg-white rounded">
+      <div id="<%= dom_id visitor %>">
+        <p>
+          <%= visitor.name %>
+        </p>
+        <p class="text-sm">
+          <%= visitor.cpf %>
+        </p>
+        <p class="text-sm">
+          <%= visitor.rg %>
+        </p>
+        <p class="text-sm">
+          <%= visitor.phone %>
+        </p>
+      </div>
+      <a href="/visitors/<%= visitor.id %>">
+        <button class="bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded">
+          Show
+        </button>
+      </a>
+    </div>
+  <% end %>
+</div>
